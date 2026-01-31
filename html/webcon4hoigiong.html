@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hội Gióng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #e7e2e2;
+        }
+
+        .nav-logo span {
+            color: #f59e0b;
+            margin-left: 5px;
+        }
+
+        .nav-menu {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu:hover {
+            opacity: 1;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f172a;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(to right, #1e293b, #020617);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #f59e0b;
+            letter-spacing: 3px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            border-left: 5px solid #f59e0b;
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        video, audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-home:hover {
+            text-decoration: underline;
+        }
+
+         .footer {
+            background-color: #1e293b;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-align: left;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .fb-link {
+            color: #FAFAD2;
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            font-weight: 700;
+        }
+
+        .fb-link:hover {
+            text-decoration: underline;
+        }
+
+        .fb-link:active {
+            color: #B8860B;
+        }
+    </style>
+</head>
+
+<body>
+     <!-- Header  -->
+   
+    <div style="text-align: right;">
+       <a href="index.html" 
+       class="font-serif text-sm tracking-[0.2em] text-slate-300 hover:text-moon-gold transition-colors uppercase font-medium" 
+       style="color: rgb(143, 141, 165);font-size: 15px; font-family:  Arial, Times, serif; text-decoration: none;">
+     TRANG CHỦ
+      </a>
+    </div>
+
+<header>
+    <h1>HỘI GIÓNG</h1>
+    <p>Di sản văn hóa phi vật thể đại diện của nhân loại</p>
+</header>
+
+<main>
+
+    <!-- GIỚI THIỆU -->
+    <section>
+        <h2>Giới thiệu</h2>
+        <p>
+            Hội Gióng là lễ hội truyền thống tiêu biểu của người Việt, được tổ chức
+            nhằm tưởng nhớ và tôn vinh Thánh Gióng – Phù Đổng Thiên Vương, một trong
+            bốn vị thánh bất tử trong tín ngưỡng dân gian Việt Nam.
+        </p>
+        <p>
+            Lễ hội được tổ chức hằng năm tại đền Phù Đổng (Gia Lâm) và đền Sóc (Sóc Sơn),
+            thành phố Hà Nội. Năm 2010, Hội Gióng đã được UNESCO công nhận là
+            Di sản văn hóa phi vật thể đại diện của nhân loại.
+        </p>
+    </section>
+
+    <!-- HÌNH ẢNH -->
+    <section>
+        <h2>Hình ảnh Hội Gióng</h2>
+        <img src="images/hoi-giong.jpg" alt="Hội Gióng">
+    </section>
+
+    <!-- VIDEO -->
+    <section>
+        <h2>Video tư liệu</h2>
+        <video controls>
+            <source src="video/hoi-giong.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+    </section>
+
+    <!-- ÂM THANH -->
+    <section>
+        <h2>Âm thanh lễ hội</h2>
+        <audio controls>
+            <source src="audio/hoi-giong.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ âm thanh.
+        </audio>
+    </section>
+
+    <!-- QUAY VỀ -->
+    <a href="index.html" class="back-home">← Quay về trang chính</a>
+
+</main>
+
+ <!-- Footer -->
+    <footer class="footer">
+        <p>Hotline: 0944461502</p>
+        <p>Contact: yenn2114@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/1C4V2PZwBJ/" class="fb-link" target="_blank">Chia sẻ kiến thức Việt Nam</a></p>
+        <p>© 2026-Website traditional festival | design by student 12a2</p>
+        <p>Address: <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THCS+v%C3%A0+THPT+V%C3%B5+V%C4%83n+Ki%E1%BB%87t/@9.9595209,105.0976273,17z/data=!3m1!4b1!4m6!3m5!1s0x31a0b44a42b355e5:0x9974a412e636f455!8m2!3d9.9595156!4d105.1002022!16s%2Fg%2F11cs1w8yhv?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" class="fb-link" target="_blank"> 93-95-97, đường 3 tháng 2, Phường Rạch Giá, tỉnh An Giang </a></p>
+    </footer>
+
+
+</body>
+</html>

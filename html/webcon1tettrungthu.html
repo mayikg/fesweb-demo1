@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Voyage - Trung Thu</title>
+    <!-- Import Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700;900&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <base href="http://127.0.0.1:5500/">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'mid-night': '#0a101e', 
+                        'moon-gold': '#d4af37',
+                        'accent-gold': '#f3cf7a',
+                        'text-muted': '#94a3b8',
+                    },
+                    fontFamily: {
+                        'script': ['"Dancing Script"', 'cursive'],
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'body': ['"Quicksand"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Header Glass Effect */
+        .glass-header {
+            background: rgba(15, 23, 40, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Font logo đặc  */
+        .logo-heritage {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            letter-spacing: -0.05em; /*  */
+        }
+        .logo-voyage {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
+
+        /* Layout Image Stack (Left Side) */
+        .image-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Positions from original image */
+        .img-1 { width: 75%; align-self: flex-start; }
+        .img-2 { width: 60%; align-self: flex-end; margin-top: -3rem; margin-right: 5%; }
+        .img-3 { width: 90%; align-self: flex-start; margin-top: -1rem; }
+        .img-4 { width: 85%; align-self: flex-end; margin-top: 2rem; }
+        .img-5 { width: 70%; align-self: flex-start; margin-top: -2rem; }
+        .img-6 { width: 65%; align-self: flex-end; margin-top: -1rem; }
+
+        .custom-text-gradient {
+            background: linear-gradient(to bottom, #f3cf7a, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(rgba(10, 16, 30, 0.5), rgba(10, 16, 30, 0.9)), 
+                        url('https://images.unsplash.com/photo-1509177651786-641e7653c30a?auto=format&fit=crop&q=80&w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+        }
+        .footer {
+            background-color: #1e293b;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-align: left;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .fb-link {
+            color: #FAFAD2;
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            font-weight: 700;
+        }
+
+        .fb-link:hover {
+            text-decoration: underline;
+        }
+
+        .fb-link:active {
+            color: #B8860B;
+        }
+    </style>
+</head>
+<body class="bg-mid-night text-slate-200 font-body antialiased selection:bg-moon-gold selection:text-mid-night">
+
+    <!-- Header  -->
+    <header class="glass-header fixed top-0 w-full z-50 border-b border-white/5">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex justify-between items-end">
+            <!-- Logo Section -->
+            <div class="flex items-baseline">
+                <span class="logo-heritage text-3xl md:text-4xl text-white">HERITAGE</span>
+                <span class="logo-voyage text-3xl md:text-4xl text-moon-gold ml-1">VOYAGE</span>
+            </div>
+            
+            <!-- Navigation -->
+            <nav>
+                <a href="index.html" class="font-serif text-sm tracking-[0.3em] text-slate-300 hover:text-moon-gold transition-colors uppercase font-medium">Trang Chủ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Traditional Festival) -->
+    <section class="hero-banner relative flex items-center px-8 md:px-24 pt-24">
+        <div class="w-full max-w-7xl mx-auto">
+            <h2 class="font-serif text-6xl md:text-9xl text-white font-black leading-[0.85] uppercase tracking-tighter max-w-4xl">
+                Traditional<br>Festival
+            </h2>
+            <div class="absolute bottom-12 right-12 md:right-24">
+                <p class="font-serif italic text-xl md:text-3xl text-slate-400 opacity-60 tracking-widest">Câu slogan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 items-start">
+            
+            <!-- LEFT COLUMN: Masonry Images -->
+            <div class="md:col-span-5 image-stack">
+                <div class="img-container img-1">
+                    <img src="images/trungthu1.2.jpg" alt="Đèn lồng cua">
+                </div>
+                <div class="img-container img-2">
+                    <img src="images/trungthu1.0.jpg" alt="Múa lân">
+                </div>
+                <div class="img-container img-3">
+                    <img src="images/tt1.3thadenhoadang.jpg" alt="Cô gái thả đèn">
+                </div>
+                <div class="img-container img-4">
+                    <img src="images/tt1.5.jpg" alt="Bánh trung thu">
+                </div>
+                <div class="img-container img-5">
+                    <img src="images/tt1.6.jpg" alt="Bánh pía">
+                </div>
+                <div class="img-container img-6">
+                    <img src="images/tt1.7.jpg" alt="Trà bánh">
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Text Content -->
+            <div class="md:col-span-7 flex flex-col space-y-12 md:sticky md:top-32">
+                
+                <div class="text-right">
+                    <h1 class="font-script text-8xl md:text-[10rem] custom-text-gradient drop-shadow-2xl leading-none">
+                        Trung Thu
+                    </h1>
+                </div>
+
+                <div class="space-y-8">
+                    <p class="text-xl md:text-2xl text-justify leading-relaxed font-light text-slate-200">
+                        <span class="text-accent-gold font-serif font-bold italic">Tết Trung Thu</span> (Rằm tháng Tám âm lịch) mang ý nghĩa sâu sắc về sự đoàn viên gia đình, lòng biết ơn đối với trời đất, tổ tiên và cầu mong mùa màng bội thu, thịnh vượng.
+                    </p>
+                    <p class="text-lg text-justify leading-relaxed text-text-muted">
+                        Đồng thời là dịp để trẻ em vui chơi, kết nối cộng đồng và giữ gìn bản sắc văn hóa dân tộc qua các hoạt động truyền thống như múa lân, rước đèn rực rỡ dưới ánh trăng vàng.
+                    </p>
+                </div>
+
+                <div class="border-t border-white/10 pt-10">
+                    <p class="text-slate-300 text-justify leading-relaxed text-lg">
+                        Nhắc đến Tết Trung Thu ta không thể bỏ lỡ những món ăn đặc trưng của ngày lễ này:
+                        <br><br>
+                        <span class="text-white font-semibold italic">Bánh Trung Thu</span>, đặc biệt là dòng bánh nướng truyền thống chính là "linh hồn" của đêm rằm. Lớp vỏ nâu vàng óng ả, thơm mùi nước đường và rượu mai quế lộ. Ôm trọn phần nhân thập cẩm mặn ngọt hài hòa hoặc nhân đậu xanh mịn màng. Mỗi chiếc bánh tượng trưng cho sự vẹn tròn, viên mãn.
+                    </p>
+                    <div class="mt-8 bg-white/5 p-6 rounded-xl border-l-4 border-moon-gold">
+                        <p class="italic text-lg text-slate-300">
+                            "Bánh pía cũng là một lựa chọn tốt cho những fan thích ngọt."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <p class="text-slate-300 text-justify leading-relaxed text-lg">
+                        Sẽ thật thiếu sót nếu thiếu đi một ấm <span class="text-accent-gold font-bold">trà sen Thái Nguyên</span> nóng hổi. Vị đắng nhẹ, chát và thanh của trà là "người bạn đời" hoàn hảo, giúp cân bằng lại cái ngọt đậm của bánh, tạo nên dư vị khó quên trong đêm trăng sáng.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <p>Hotline: 0944461502</p>
+        <p>Contact: yenn2114@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/1C4V2PZwBJ/" class="fb-link" target="_blank">Chia sẻ kiến thức Việt Nam</a></p>
+        <p>© 2026-Website traditional festival | design by student 12a2</p>
+        <p>Address: <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THCS+v%C3%A0+THPT+V%C3%B5+V%C4%83n+Ki%E1%BB%87t/@9.9595209,105.0976273,17z/data=!3m1!4b1!4m6!3m5!1s0x31a0b44a42b355e5:0x9974a412e636f455!8m2!3d9.9595156!4d105.1002022!16s%2Fg%2F11cs1w8yhv?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" class="fb-link" target="_blank"> 93-95-97, đường 3 tháng 2, Phường Rạch Giá, tỉnh An Giang </a></p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="http://127.0.0.1:5500/">
+    <title>Tết Nguyên Đán</title>
+    <style>
+        /*reset styles*/
+        *{margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:'segoe UI','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+         .navbar {
+            width: 100%;
+            height: 60px;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-logo span {
+            color: #f59e0b;
+            margin-left: 5px;
+        }
+
+        .nav-menu {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu:hover {
+            opacity: 1;
+        }
+        body{
+            background-color: #0f172a;
+            color: rgb(232, 223, 227);
+            line-height: 1.6;
+            padding: 20px;
+            font-size: 16px;
+        }
+        /*main cotainer*/
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: beige;
+            padding: 40px;
+            box-shadow: 1 10px 30px rgba(0, 0, 0, 0.1)
+        }
+        /*header*/
+        header{
+            text-align: center; 
+            padding-bottom: 20px;
+            border-bottom: 3px solid#FF6347;
+            border-style: dashed;
+
+        }
+        header h1{
+            font-size: 42px;
+            color: rgb(226, 89, 112);
+            font-weight: bold;
+            font-family: dancing script;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+        }
+        header p{
+            font-size: 18px;
+            color: cornflowerblue;
+            margin-top: 10px;
+        }
+        /*section style*/
+        section {
+            margin-top: 30px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 4px solid #FF6347;
+            padding-left: 15px;
+        }
+        h3 {
+            font-size: 24px;
+            color: #444;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.7;
+            text-align:justify;
+        }
+        image {
+            text-align: center;
+            margin-top: 30px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: auto;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.05);
+            text-align: center;
+        }
+        /*table styles*/
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        *th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+        th {
+            background-color: #FF6347;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f4f4f4;
+        }
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            border-radius: 12px;
+        }
+        footer a {
+            color: #FF6347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        /*Button styles*/
+        button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FF6347;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+             background-color: #FF4500;
+        }
+         .footer {
+            background-color: #1e293b;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-align: left;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .fb-link {
+            color: #FAFAD2;
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            font-weight: 700;
+        }
+
+        .fb-link:hover {
+            text-decoration: underline;
+        }
+
+        .fb-link:active {
+            color: #B8860B;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-logo">HERITAGE<span>VOYAGE</span></div>
+    <div class="nav-menu">
+        <a href="index.html" style="color: lightgrey; text-decoration: none;">Trang Chủ</a>
+    </div>
+</nav>
+    <div class="container">
+        <!-- Header-->
+        <header>
+            <h1>Tết Nguyên Đán</h1>
+        </header>
+<!-- Section 1: Nguồn gốc -->
+<section>
+    <h2>1. Nguồn gốc</h2>
+    <p>Tết Nguyên Đán (còn gọi là Tết Cả, Tết ta, Tết Âm lịch, Tết Cổ truyền hay đơn giản là Tết) là dịp lễ đầu năm Âm lịch và cũng là lễ hội quan trọng và lớn nhất và có ý nghĩa nhất ở Việt Nam. Lễ hội diễn ra vào ngày mùng 1 tháng Giêng âm lịch. </p>
+    <p>Theo nghiên cứu của nhà sử học Trần Văn Giáp, ngày "Tết Nguyên đán" ở Việt Nam đã có từ đầu thế kỷ thứ nhất sau Công nguyên. Nguồn gốc chữ Tết cũng như nghĩa chữ "Tết Nguyên đán" cũng được phổ biến từ thời đó.Còn theo sự tích "Bánh chưng, bánh dày", Tết Nguyên đán có thể đã xuất hiện từ thời các vua Hùng, với truyền thuyết về chàng Lang Liêu và bánh chưng</p>
+    <div class="image"></div>
+        <img src="images/tnd2.0.jpg" height="500px" width="500px" alt="tết nguyên đán" >
+    <h2>2. Ý nghĩa</h2>
+    <p>Chính vì mang tính chất sự khởi đầu của một giai đoạn gieo trồng mới, một tháng mới, mùa mới, năm mới, cho nên Tết có ý nghĩa rất lớn trong đời sống của người Việt.</p>
+    <p>Với mỗi người Việt, Tết là dịp tụ họp, đoàn viên gia đình. Con cháu đi làm ăn xa, dù bận đến mấy cũng cố gắng về ăn Tết với gia đình. Mọi người ai nấy đều cố hoàn thành công việc, giải quyết công nợ xong hết trước Tết, để có thể đón một năm mới thanh thản, an vui.</p>
+    <h2>3. Hoạt động chính</h2>
+        <img src="images/tnd2.1.png" height="500px" width="500px" alt="tết nguyên đán" >
+    <p>Nét đặc trưng trong văn hóa Tết Việt đó là bánh chưng và bánh tét : Bánh chưng (hình vuông) và bánh tét (hình trụ) là linh hồn của ẩm thực Tết Việt, gắn liền với sự tích Lang Liêu. Bánh tượng trưng cho lòng biết ơn trời đất, tổ tiên đã cho mưa thuận gió hòa, mùa màng bội thu</p>
+    <p>xét về tổng thể, phong tục của ngày Tết được chia làm ba khoảng thời gian, gồm: Tất niên, Giao thừa và Tân niên.</p>
+    <p>Mỗi khoảng thời gian ứng với những hoạt động như: Tống cựu nghinh tân; Đưa ông Táo về trời vào ngày 23 tháng Chạp; Gói bánh chưng, bánh tét; Chưng hoa ngày tết (đào, mai, quất…); Chưng mâm ngũ quả; Thăm viếng mộ tổ tiên, mời vong linh tổ tiên về ăn Tết với con cháu; Cúng giao thừa; Xông đất; Chúc tết và mừng tuổi ông bà, cha mẹ, họ hàng, bạn bè; Xuất hành đầu năm; Đi lễ chùa đầu năm; Hái lộc đầu xuân;…. Những phong tục mang tính linh thiêng đó đều nhằm cầu mong cho sự tốt lành, may mắn, thành công và sức khỏe trong năm mới.</p>
+    <p>Bên cạnh những phong tục linh thiêng ngày Tết, người Việt xưa còn ăn Tết, vui xuân bằng các hoạt động vui tươi, lành mạnh như: hội đánh vật, ném còn, chơi đu, bơi thuyền, chọi trâu, đua ngựa và các trò chơi dân gian khác…,</p>
+</section>
+</div>
+ <!-- Footer -->
+    <footer class="footer">
+        <p>Hotline: 0944461502</p>
+        <p>Contact: yenn2114@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/1C4V2PZwBJ/" class="fb-link" target="_blank">Chia sẻ kiến thức Việt Nam</a></p>
+        <p>© 2026-Website traditional festival | design by student 12a2</p>
+        <p>Address: <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THCS+v%C3%A0+THPT+V%C3%B5+V%C4%83n+Ki%E1%BB%87t/@9.9595209,105.0976273,17z/data=!3m1!4b1!4m6!3m5!1s0x31a0b44a42b355e5:0x9974a412e636f455!8m2!3d9.9595156!4d105.1002022!16s%2Fg%2F11cs1w8yhv?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" class="fb-link" target="_blank"> 93-95-97, đường 3 tháng 2, Phường Rạch Giá, tỉnh An Giang </a></p>
+    </footer>
+
+</body>
+</style>
+</head>
+</html>

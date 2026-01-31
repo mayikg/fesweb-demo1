@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web Lễ hội Truyền thống</title>
+    <!-- Nhập phông chữ từ Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <base href="http://127.0.0.1:5500/">
+    <style>
+        /* CSS RESET & CƠ BẢN */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f172a;
+            color: white;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .nav-logo span {
+            color: #f59e0b;
+            margin-left: 5px;
+        }
+
+        .nav-menu {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu:hover {
+            opacity: 1;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            height: 65vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 4rem 1.5rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(15, 23, 42, 1) 95%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 1;
+            
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            line-height: 1.1;
+            margin-top: 2rem;
+        }
+
+        .slogan {
+            align-self: flex-end;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.2em;
+            opacity: 0.9;
+            margin-top: auto;
+            max-width: 1200px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 100%;
+            text-align: right;
+        }
+
+        /* PHẦN CHÍNH */
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            border-left: 4px solid #f59e0b;
+            padding-left: 15px;
+        }
+
+        /* MỤC LỤC */
+        .toc-list {
+            list-style: none;
+            margin-bottom: 5rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-number {
+            font-weight: bold;
+            margin-right: 0.5rem;
+            min-width: 25px;
+        }
+
+        .toc-text {
+            flex: 1;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+            padding-bottom: 2px;
+        }
+
+        /* DANH SÁCH CHI TIẾT 14 LỄ HỘI */
+        .festival-details-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        .festival-card {
+            display: grid;
+            grid-template-columns: 2fr 3fr; /* Tỷ lệ 2/5 và 3/5 */
+            gap: 2rem;
+            background-color: rgba(30, 41, 59, 0.5);
+            padding: 1.5rem;
+            border-radius: 8px;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .festival-card:hover {
+            transform: translateX(10px);
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+
+        .festival-image-container {
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            background-color: #3b82f6;
+        }
+
+        .festival-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .festival-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        /* thanhbar */
+        .bar:hover{
+            color: #d08d34;
+            }
+        .bar:active {
+            color: #f0f07d;
+        }
+        /* dành cho đường dẫn */
+        .webcon {
+            color: #e7e7a6;
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            font-weight: 700;
+        }
+        
+        .webcon:hover{
+            text-decoration: underline;}
+        .webcon:active {
+            color: #a8cf5a;
+        }
+        
+
+        /* CSS cho tiêu đề chứa liên kết Wikipedia */
+        .wiki-link {
+            color: #f59e0b; /* Màu vàng cam mặc định */
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .wiki-link:hover {
+            color: #ffffff; /* Chuyển sang màu trắng khi đưa chuột lại gần */
+        }
+
+        .wiki-link:active {
+            text-decoration: underline; /* Bị gạch chân khi nhấn vào */
+        }
+
+        .festival-info p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            text-align: justify;
+        }
+
+        /* TIN LIÊN QUAN */
+        .related-section {
+            margin-top: 4rem;
+        }
+
+        .related-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .small-thumb {
+            width: 100px;
+            height: 70px;
+            background-color: #3b82f6;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .small-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dashed-lines {
+            flex: 1;
+            border-top: 1px dotted rgba(255, 255, 255, 0.4);
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.4);
+            height: 30px;
+        }
+        /* <--===============--> */
+         .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 300;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            color: #a2aebb; /* Màu chữ tiêu đề nhạt hơn */
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            align-items: center; 
+            gap: 15px;
+            text-decoration: none; /* Bỏ gạch chân nếu dùng thẻ <a> */
+            color: inherit;
+            transition: transform 0.2s ease;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px); /* Hiệu ứng nhích nhẹ khi di chuột */
+        }
+
+        .news-item img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+            background-color: #1b263b; /* Màu nền tạm khi ảnh chưa load */
+        }
+
+        .news-content {
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 0;
+            flex: 1;
+        }
+
+        .spacer {
+            height: 40px; /* Khoảng cách giữa 2 phần */}
+            
+
+        /* FOOTER */
+        .footer {
+            background-color: #1e293b;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            text-align: left;
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .fb-link {
+            color: #FAFAD2;
+            text-decoration: none;
+            transition: color 0.2s, text-decoration 0.2s;
+            font-weight: 700;
+        }
+
+        .fb-link:hover {
+            text-decoration: underline;
+        }
+
+        .fb-link:active {
+            color: #B8860B;
+        }
+        
+
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .festival-card {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    
+    <nav class="navbar">
+    <div class="nav-logo">HERITAGE<span>VOYAGE</span></div>
+    <div class="nav-menu" >
+        <div class="bar">
+             <a href="html/csbm.html" style="color: lightgrey; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='lightgrey'" onmousedown="this.style.color='green'">Chính sách bảo mật   .</a>
+             <a href="html/dksd.html" style="color: lightgrey; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='lightgrey'" onmousedown="this.style.color='green'">Điều khoản sử dụng    .</a>
+             <a href="index.html" style="color: lightgrey; text-decoration: none;" onmouseover="this.style.color='yellow'" onmouseout="this.style.color='lightgrey'" onmousedown="this.style.color='lightgreen'">Trang Chủ</a>
+        </div>
+        
+
+    </div>
+</nav>
+</nav>
+    <!-- Hero Section -->
+    <header class="hero">
+        <img src="demo.jpg" 
+             alt="Đèn lồng truyền thống" 
+             class="hero-bg">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">TRADITIONAL<br>FESTIVAL</h1>
+        </div>
+
+        <p class="slogan">Văn hóa là hồn cốt của dân tộc</p>
+    </header>
+
+    <main class="main-container">
+        <!-- Mục lục -->
+        <h2 class="section-title">MỤC LỤC</h2>
+        <div class="toc-list">
+            <div class="toc-item"><span class="toc-number">1.</span><div class="toc-text">Trung thu</div></div>
+            <div class="toc-item"><span class="toc-number">2.</span><div class="toc-text">Tết nguyên Đán</div></div>
+            <div class="toc-item"><span class="toc-number">3.</span><div class="toc-text">Lễ hội Đống Đa</div></div>
+            <div class="toc-item"><span class="toc-number">4.</span><div class="toc-text">Hội Gióng</div></div>
+            <div class="toc-item"><span class="toc-number">5.</span><div class="toc-text">Tết Nguyên Tiêu</div></div>
+            <div class="toc-item"><span class="toc-number">6.</span><div class="toc-text">Đình Thần Dương Ông</div></div>
+            <div class="toc-item"><span class="toc-number">7.</span><div class="toc-text">Dinh Bà Ông Lang</div></div>
+            <div class="toc-item"><span class="toc-number">8.</span><div class="toc-text">Lễ vía bà Thu Bồn</div></div>
+            <div class="toc-item"><span class="toc-number">9.</span><div class="toc-text">Lễ hội Nguyễn Trung Trực ở Kiên Giang</div></div>
+            <div class="toc-item"><span class="toc-number">10.</span><div class="toc-text">Lễ hội Đền Hùng (Phú Thọ)</div></div>
+            <div class="toc-item"><span class="toc-number">11.</span><div class="toc-text">Lễ Vu Lan</div></div>
+            <div class="toc-item"><span class="toc-number">12.</span><div class="toc-text">Lễ hội cồng chiêng (Tây Nguyên)</div></div>
+            <div class="toc-item"><span class="toc-number">13.</span><div class="toc-text">Lễ hội miếu bà chúa xứ Núi Sam (An Giang)</div></div>
+            <div class="toc-item"><span class="toc-number">14.</span><div class="toc-text">Lễ Hội chùa Hương</div></div>
+        </div>
+
+        <!-- 14 KHUNG VĂN BẢN CHI TIẾT -->
+        <h2 class="section-title">DANH SÁCH CHI TIẾT</h2>
+        <div class="festival-details-container">
+            
+            <!-- 1. Trung thu -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/trungthu1.0.jpg" alt="Trung thu">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Tết_Trung_thu" target="_blank" class="wiki-link">1. Trung thu</a></h3>
+                    <p>Tết Trung Thu diễn ra vào rằm tháng 8 âm lịch hằng năm, là lễ hội truyền thống gắn liền với hình ảnh vầng trăng tròn – biểu tượng của sự đoàn viên, trọn vẹn. Lễ hội này có nguồn gốc từ tín ngưỡng nông nghiệp, khi người dân tổ chức mừng mùa màng bội thu sau vụ thu hoạch</p>
+                    <p  ><a href ="html/webcon1tettrungthu.html " class="webcon" target ="_blank"><span style="color: bisque;">Xem thêm</span></a></p>
+
+                </div> 
+            </div>
+
+            <!-- 2. Tết Nguyên Đán -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/tnd2.0.jpg" alt="Tết Nguyên Đán">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Tết_Nguyên_Đán" target="_blank" class="wiki-link">2. Tết nguyên Đán</a></h3>
+                    <p>Tết Nguyên Đán là lễ hội truyền thống lâu đời và quan trọng nhất của dân tộc Việt Nam. Lễ hội này bắt nguồn từ nền văn minh nông nghiệp lúa nước, gắn liền với chu kỳ canh tác và sự vận hành của trời đất. Đối với người Việt, Tết không chỉ đơn thuần là thời điểm chuyển giao năm cũ – năm mới mà còn mang ý nghĩa thiêng liêng, đánh dấu sự khởi đầu cho một chu trình sống mới </p>
+                    <p  ><a href ="html/webcon2tetnd.html " class="webcon" target ="_blank"><span style="color: bisque;">Xem thêm</span></a></p>
+                </div>
+            </div>
+
+            <!-- 3. Lễ hội Đống Đa -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/tnd3.0.jpg" alt="Lễ hội Đống Đa">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Hội_Gò_Đống_Đa" target="_blank" class="wiki-link">3. Lễ hội Đống Đa</a></h3>
+                    <p>Kỷ niệm chiến thắng Ngọc Hồi - Đống Đa của vua Quang Trung, tôn vinh tinh thần yêu nước và sức mạnh quật cường của dân tộc trong lịch sử chống giặc ngoại xâm</p>
+                    <p  ><a href ="html/webcon3dd.html " class="webcon" target ="_blank"><span style="color: bisque;">Xem thêm</span></a></p>
+                </div>
+            </div>
+
+            <!-- 4. Hội Gióng -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                     <img src="/images/hoigiong4.0.jpg" alt="Hội Gióng">
+                    <div style="width:100%; height:100%; display:flex; align-items:center; justify-content:center; background:#1e293b; color:#475569;">[Ảnh Hội Gióng]</div>
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Hội_Gióng" target="_blank" class="wiki-link">4. Hội Gióng</a></h3>
+                    <p>Lễ hội văn hóa phi vật thể đại diện của nhân loại, tôn vinh vị thánh trẻ tuổi Phù Đổng Thiên Vương, một trong bốn vị thánh bất tử trong tín ngưỡng dân gian Việt Nam </p>
+                    <p  ><a href ="html/webcon4hoigiong.html " class="webcon" target ="_blank"><span style="color: bisque;">Xem thêm</span></a></p>
+                </div>
+            </div>
+
+            <!-- 5. Tết Nguyên Tiêu -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/tnt5.0.jpg" alt="Tết Nguyên Tiêu">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Tết_Nguyên_tiêu" target="_blank" class="wiki-link">5. Tết Nguyên Tiêu</a></h3>
+                    <p>Ngày rằm đầu tiên của năm mới âm lịch, người dân thường đi lễ chùa cầu may và thưởng thức các chương trình văn nghệ, ngâm thơ đặc sắc.</p>
+                </div>
+            </div>
+
+            <!-- 6. Đình Thần Dương Ông -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/dtdo6.0.jpg" alt="Đình Thần Dương Ông">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Đình_thần_Việt_Nam" target="_blank" class="wiki-link">6. Đình Thần Dương Ông</a></h3>
+                    <p>Lễ hội tín ngưỡng địa phương đặc sắc, nơi người dân thể hiện lòng biết ơn với các vị có công khai hoang, lập ấp và giữ gìn vùng đất phương Nam.</p>
+                </div>
+            </div>
+
+            <!-- 7. Dinh Bà Ông Lang -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/dbol7.0.jpg" alt="Dinh Bà Ông Lang">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Ông_Lang,_Phú_Quốc" target="_blank" class="wiki-link">7. Dinh Bà Ông Lang</a></h3>
+                    <p>Gắn liền với các truyền thuyết vùng biển Phú Quốc, lễ hội này cầu mong mưa thuận gió hòa cho những chuyến đi biển bình an của ngư dân.</p>
+                </div>
+            </div>
+
+            <!-- 8. Lễ vía bà Thu Bồn -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/lbtb8.0.jpg" alt="Lễ vía bà Thu Bồn">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Lễ_hội_Bà_Thu_Bồn" target="_blank" class="wiki-link">8. Lễ vía bà Thu Bồn</a></h3>
+                    <p>Lễ hội sông nước độc đáo ở Quảng Nam, thể hiện lòng thành kính đối với bà Thu Bồn - người mẹ của vùng đất hạ lưu, mang lại phù sa và sự sống.</p>
+                </div>
+            </div>
+
+            <!-- 9. Lễ hội Nguyễn Trung Trực -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/ntt9.1.jpg" alt="Lễ hội Nguyễn Trung Trực">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Nguyễn_Trung_Trực" target="_blank" class="wiki-link">9. Lễ hội Nguyễn Trung Trực</a></h3>
+                    <p>Lễ hội nhằm tưởng nhớ anh hùng dân tộc Nguyễn Trung Trực – người có công lớn trong phong trào chống thực dân Pháp. Lễ hội diễn ra trang nghiêm với các nghi thức truyền thống.
+Ngoài ra còn góp phần giáo dục lòng yêu nước và tinh thần bất khuất cho các thế hệ sau </p>
+                    <p  ><a href ="html/webcon5ntt.html " class="webcon" target ="_blank"><span style="color: bisque;">Xem thêm</span></a></p>
+                </div>
+            </div>
+
+            <!-- 10. Lễ hội Đền Hùng -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/dh10.0.jpg" alt="Đền Hùng">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Giỗ_Tổ_Hùng_Vương" target="_blank" class="wiki-link">10. Lễ hội Đền Hùng (Phú Thọ)</a></h3>
+                    <p>Giỗ Tổ Hùng Vương là ngày hội chung của cả dân tộc, nhắc nhở con cháu về đạo lý "uống nước nhớ nguồn" và sự đoàn kết giữa các dân tộc anh em.</p>
+                </div>
+            </div>
+
+            <!-- 11. Lễ Vu Lan -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/vl11.0.jpg" alt="Lễ Vu Lan">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Lễ_Vu-lan" target="_blank" class="wiki-link">11. Lễ Vu Lan</a></h3>
+                    <p>Mùa báo hiếu vào tháng 7 âm lịch, là dịp để mỗi người bày tỏ lòng biết ơn sâu sắc đến công ơn sinh thành và dưỡng dục của cha mẹ.</p>
+                </div>
+            </div>
+
+            <!-- 12. Lễ hội cồng chiêng -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/cc12.0.jpg" alt="Cồng chiêng">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Không_gian_văn_hóa_Cồng_Chiêng_Tây_Nguyên" target="_blank" class="wiki-link">12. Lễ hội cồng chiêng</a></h3>
+                    <p>Không gian văn hóa cồng chiêng Tây Nguyên là kiệt tác truyền khẩu và phi vật thể của nhân loại, gắn bó mật thiết với cuộc sống tâm linh của các dân tộc thiểu số.</p>
+                </div>
+            </div>
+
+            <!-- 13. Lễ hội miếu bà chúa xứ -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/mbcs13.0.jpg" alt="Bà Chúa Xứ">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Miếu_Bà_Chúa_Xứ_Núi_Sam" target="_blank" class="wiki-link">13. Lễ hội miếu bà chúa xứ Núi Sam</a></h3>
+                    <p>Được tôn kính như một vị thánh mẫu bảo trợ, Bà Chúa Xứ là biểu tượng của niềm tin
+và lòng biết ơn Mẹ Đất – Mẹ Xứ Sở của cộng đồng các dân tộc Việt, Chăm, Khmer và
+Hoa ở Châu Đốc, An Giang. Tín ngưỡng này không chỉ gắn liền với đời sống tâm linh
+mà còn phản ánh khát vọng về sức khỏe, bình an, và tài lộc của cư dân miền sông
+nước Tây Nam Bộ.
+Việc UNESCO công nhận Lễ hội Vía Bà Chúa Xứ Núi Sam là Di sản văn hóa phi vật thể
+đại diện của nhân loại không chỉ góp phần khẳng định giá trị văn hóa độc đáo của
+Việt Nam mà còn mở ra cơ hội quảng bá hình ảnh đất nước đến với bạn bè quốc tế.
+Đây là niềm tự hào, đồng thời là trách nhiệm lớn lao trong việc gìn giữ và phát huy
+giá trị văn hóa truyền thống cho thế hệ mai sau.</p>
+                </div>
+            </div>
+
+            <!-- 14. Lễ Hội chùa Hương -->
+            <div class="festival-card">
+                <div class="festival-image-container">
+                    <img src="/images/lch14.0.jpg" alt="Chùa Hương">
+                </div>
+                <div class="festival-info">
+                    <h3><a href="https://vi.wikipedia.org/wiki/Chùa_Hương" target="_blank" class="wiki-link">14. Lễ Hội chùa Hương</a></h3>
+                    <p>Lễ hội chùa Hương gắn liền với tín ngưỡng dân gian thờ Chúa Ba. Tương truyền rằng công chúa Diệu Thiện tu
+hành 9 năm tại Hương Sơn, sau đó đắc đạo thành Phật để phổ độ chúng sanh. Thời điểm mà công chúa Diệu Thiện
+đắc đạo cũng chính là giữa mùa Xuân, trăm hoa đua nở, cây cỏ xanh tươi, vạn vật tương sinh tương ái.
+Tháng 3 năm 1770, Chúa Trịnh Sâm trong chuyến tuần du tại Trấn Sơn Nam đã đến chùa Hương Tích vãn cảnh,
+thắp hương và đề lên cửa động 5 chữ “Nam Thiên Đệ Nhất Động”. Điều này đã biến động Hương Tích trở thành
+một di tích lớn, tạo tiền đề cho sự hình thành lễ Chùa Hương sau này. Đến năm 1896, niên hiệu Thành Thái thứ 8, lễ
+hội chùa Hương mới chính thức được tổ chức như một lễ hội thực thụ và là một trong những lễ hội lớn nhất Việt
+Nam.</p>
+                </div>
+            </div>
+            
+        </div>
+
+       
+                
+              
+        </div>
+          <div class="container">
+        <h2 class="section-title">Tin liên quan</h2>
+        
+        <div class="news-list">
+            <div class="news-item">
+                <img src="images/tlq1.jpg" alt="Hành lý">
+                <p class="news-content"><a href ="html/tinlienquan1.html " class="webcon" target ="_blank">Check-list sống còn cho người lần đầu đi lễ.</a></p>
+
+            </div>
+
+            <div class="news-item">
+                <img src="images/nttchatgpt.0.jpeg" alt="Nguyễn Trung Trực">
+                
+                <p class="news-content"><a href ="html/tinlienquan2.html " class="webcon" target ="_blank">Lửa thiền và lòng dân: Nơi ý chí cụ Nguyễn Trung Trực thắp sáng cả một vùng sông nước</a></p>
+            </div>
+
+            <div class="news-item">
+                <img src="images/tlq3.jpg" alt="Chúc tết">
+                
+                <p class="news-content"><a href ="html/tinlienquan3.html " class="webcon" target ="_blank">99% mọi người đều chúc tết sai cách. Xem ngay bộ 'văn mẫu' khiến họ hàng không kịp quay xe</a></p>
+            </div>
+        </div>
+
+        <div class="spacer"></div>
+
+        <h2 class="section-title">Có thể bạn quan tâm</h2>
+        
+        <div class="news-list">
+            <div class="news-item">
+                <img src="images/ctbqt1.jpg" alt="Bún đậu mắm tôm">
+                
+                <p class="news-content"><a href ="html/cothebnquantam.html " class="webcon" target ="_blank">Tại sao chúng ta có thể ăn mắm tôm sau đó tráng miệng bằng trà đá mà bụng vẫn... ổn.</a></p>
+            </div>
+        </div>
+    </div>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Hotline: 0944461502</p>
+        <p>Contact: yenn2114@gmail.com</p>
+        <p>Facebook: <a href="https://www.facebook.com/share/1C4V2PZwBJ/" class="fb-link" target="_blank">Chia sẻ kiến thức Việt Nam</a></p>
+        <p>© 2026-Website traditional festival | design by student 12a2</p>
+        <p>Address: <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+THCS+v%C3%A0+THPT+V%C3%B5+V%C4%83n+Ki%E1%BB%87t/@9.9595209,105.0976273,17z/data=!3m1!4b1!4m6!3m5!1s0x31a0b44a42b355e5:0x9974a412e636f455!8m2!3d9.9595156!4d105.1002022!16s%2Fg%2F11cs1w8yhv?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" class="fb-link" target="_blank"> 93-95-97, đường 3 tháng 2, Phường Rạch Giá, tỉnh An Giang Add</a></p>
+    </footer>
+
+</body>
+</html>
